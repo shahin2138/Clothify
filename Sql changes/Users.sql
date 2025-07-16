@@ -1,0 +1,10 @@
+CREATE TABLE Users (
+    Id INT PRIMARY KEY IDENTITY(1,1),
+    FullName NVARCHAR(100) NOT NULL,
+    Email NVARCHAR(100) NOT NULL UNIQUE,
+    PasswordHash VARBINARY(MAX) NOT NULL,
+    PasswordSalt VARBINARY(MAX) NOT NULL,
+    IsEmailConfirmed BIT DEFAULT 0,
+    EmailVerificationToken UNIQUEIDENTIFIER,
+    CreatedAt DATETIME DEFAULT GETDATE()
+);
